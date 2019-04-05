@@ -1,10 +1,10 @@
 (in-package :clim-user)
 
-(defmethod clim::medium-draw-pixels* 
+(defmethod clim::medium-draw-pixels*
     ((medium clim-clx::clx-medium) array x y &key &allow-other-keys)
   (let* ((width  (array-dimension array 1))
          (height (array-dimension array 0))
-         (image (xlib:create-image :width width 
+         (image (xlib:create-image :width width
                                    :height height
                                    :data array
                                    :bits-per-pixel 32
@@ -20,7 +20,7 @@
    (y      :initarg :y :initform 0)))
 
 (defmethod output-record-position ((record client-rgb-image-record))
-  (with-slots (x y) record 
+  (with-slots (x y) record
     (values x y)))
 
 (defmethod replay-output-record ((record client-rgb-image-record) stream
