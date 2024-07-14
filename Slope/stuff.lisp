@@ -1,5 +1,20 @@
 (defparameter *count* 0)
 
+;;; Take two slopes as rational numbers and compute the vertical
+;;; offset for each one at every horizontal point between 0 and WIDTH.
+;;; Round the vertical offset for each slope to an integer.  If the
+;;; two rounded vertical slopes are not the same, call FUNCTION with
+;;; the horizontal position and the two rounded vertical offsets.
+(defun mumble (old-slope new-slope width function)
+  (loop for horizontal-position from 0 below width
+        for old-vertical-offset = (round (* horizontal-position old-slope))
+        for new-vertical-offset = (round (* horizontal-position new-slope))
+        unless (= old-vertical-offset new-vertical-offset)
+          do (funcall function
+                      horizontal-position
+                      old-vertical-offset
+                      new-vertical-offset)))
+
 (defun next-slope (slope width)
   (when (> (incf *count*) 1000)
     (setf *count* 0)
