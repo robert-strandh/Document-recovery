@@ -1,5 +1,15 @@
 (cl:in-package #:salvager-slope)
 
+;;;; The slope is computed as a (hopefully small) rational number that
+;;;; can be thought of as the tangent of the angle that the picture is
+;;;; rotated, where a positive slope means rotation of a negative angle
+
+;;;; FIXME: maybe change this convention.
+
+;;;; Since the angle is small, the tangent is roughly equal to the
+;;;; angle itself, the sine of the angle is also roughly equal to the
+;;;; angle itself, and the cosine of the angle is roughly equal to 1.
+
 (defun compute-energy (vector)
   (reduce #'+ vector :key (lambda (x) (* x x))))
 
@@ -37,4 +47,3 @@
                (setf max-energy energy)
                (setf slope-with-max-energy slope)))
     slope-with-max-energy))
-    
