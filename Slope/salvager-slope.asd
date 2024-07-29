@@ -4,4 +4,5 @@
   :serial t
   :components
   ((:file "packages")
-   (:file "determine-slope")))
+   (:file "determine-slope")
+   (:file "rotation")))
