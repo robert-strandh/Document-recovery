@@ -3,4 +3,5 @@
 (defsystem "salvager-slope"
   :serial t
   :components
-  ((:file "packages")))
+  ((:file "packages")
+   (:file "determine-slope")))

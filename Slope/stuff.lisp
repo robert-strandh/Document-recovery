@@ -22,9 +22,6 @@
   (loop for column from 1 below width
 	minimize (/ (floor (1+ (* slope column))) column)))
 
-(defun compute-energy (vector)
-  (reduce #'+ vector :key (lambda (x) (* x x))))
-
 (defun move-value (value vector from to)
   (let ((length (length vector)))
     (let ((from (mod (+ from length) length))
