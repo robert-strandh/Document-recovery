@@ -5,4 +5,5 @@
   :components
   ((:file "packages")
    (:file "determine-slope")
-   (:file "rotation")))
+   (:file "rotation")
+   (:file "straighten")))
