@@ -25,3 +25,16 @@
           for offset = (round (* column slope))
           do (sum-column picture column row-sums offset))
     (compute-energy row-sums)))
+
+(defun determine-slope (picture)
+  (let ((width (array-dimension picture 1))
+        (max-energy 0)
+        (slope-with-max-energy 0))
+    (loop for delta from -100 to 100
+          for slope = (/ delta width)
+          for energy = (slope-energy picture slope)
+          do (when (> energy max-energy)
+               (setf max-energy energy)
+               (setf slope-with-max-energy slope)))
+    slope-with-max-energy))
+    
