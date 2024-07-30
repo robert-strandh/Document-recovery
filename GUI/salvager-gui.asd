@@ -3,4 +3,5 @@
 (defsystem "salvager-gui"
   :serial t
   :components
-  ((:file "packages")))
+  ((:file "packages")
+   (:file "gui")))
